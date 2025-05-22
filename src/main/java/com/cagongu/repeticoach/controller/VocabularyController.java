@@ -8,6 +8,7 @@ import com.cagongu.repeticoach.service.VocabularyService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.FileNotFoundException;
 import java.util.List;
 
 @RestController
@@ -56,6 +57,12 @@ public class VocabularyController {
     @PostMapping("/review/{id}")
     public Vocabulary review(@PathVariable Long id, @RequestParam int quality) {
         return vocabularyService.reviewWord(id, quality);
+    }
+
+    @PostMapping("/import-data")
+    public void loadCsvData() throws FileNotFoundException {
+        vocabularyService.loadCsvData();
+
     }
 }
 

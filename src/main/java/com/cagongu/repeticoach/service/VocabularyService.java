@@ -3,12 +3,19 @@ package com.cagongu.repeticoach.service;
 import com.cagongu.repeticoach.dto.request.CreateVocabularyRequest;
 import com.cagongu.repeticoach.dto.request.UpdateVocabularyRequest;
 import com.cagongu.repeticoach.model.Topic;
+import com.cagongu.repeticoach.model.TopicRecord;
 import com.cagongu.repeticoach.model.Vocabulary;
+import com.cagongu.repeticoach.model.VocabularyRecord;
 import com.cagongu.repeticoach.repository.VocabularyRepository;
+import com.opencsv.bean.CsvToBeanBuilder;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.util.ResourceUtils;
 import org.springframework.util.StringUtils;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
@@ -81,11 +88,35 @@ public class VocabularyService {
                 .toList();
     }
 
-
     public Vocabulary reviewWord(Long id, int quality) {
         Vocabulary vocab = vocabRepo.findById(id)
                 .orElseThrow(() -> new RuntimeException("Vocabulary not found: " + id));
         srService.updateReview(vocab, quality);
         return vocabRepo.save(vocab);
+    }
+
+    public void loadCsvData() throws FileNotFoundException {
+        File file = ResourceUtils.getFile("classpath:csvdata/vocabularies.csv");
+        List<VocabularyRecord> recs = convertCSV(file);
+        recs.forEach(vocabularyRecord -> {
+            Topic topic = topicService.findById(vocabularyRecord.getTopic());
+            vocabRepo.save(Vocabulary.builder()
+                            .word(vocabularyRecord.getWord())
+                            .pronunciation(vocabularyRecord.getPronunciation())
+                            .type(vocabularyRecord.getType())
+                            .meaning(vocabularyRecord.getMeaning())
+                            .topic(topic)
+                    .build());
+        });
+    }
+
+    public List<VocabularyRecord> convertCSV(File file){
+        try{
+            return new CsvToBeanBuilder<VocabularyRecord>(new FileReader(file))
+                    .withType(VocabularyRecord.class)
+                    .build().parse();
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

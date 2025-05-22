@@ -1,0 +1,154 @@
+word,pronunciation,type,meaning,topic
+absent-minded,/ˈæbsəntˈmaɪndɪd/,adj,đãng trí,CHARACTER
+adventurous,/ədˈventʃərəs/,adj,thích phiêu lưu,CHARACTER
+aggressive,/əˈɡresɪv/,adj,"hung hăng, hiếu chiến",CHARACTER
+ambitious,/æmˈbɪʃəs/,adj,đầy tham vọng,CHARACTER
+amusing,/əˈmjuːzɪŋ/,adj,làm cho buồn cười,CHARACTER
+arrogant,/ˈærəɡənt/,adj,"kiêu căng, kiêu ngạo",CHARACTER
+brave,/breɪv/,adj,dũng cảm,CHARACTER
+bright,/braɪt/,adj,"sáng dạ, thông minh",CHARACTER
+careless,/ˈkeələs/,adj,"bất cẩn, cẩu thả",CHARACTER
+cheeky,/ˈtʃiːki/,adj,hỗn xược,CHARACTER
+clever,/ˈklevə(r)/,adj,thông minh,CHARACTER
+confident,/ˈkɒnfɪdənt/,adj,tự tin,CHARACTER
+cowardly,/ˈkaʊədli/,adj,nhát gan,CHARACTER
+decisive,/dɪˈsaɪsɪv/,adj,"kiên quyết, quyết đoán",CHARACTER
+easy-going,/ˌiːziˈɡəʊɪŋ/,adj,"dễ tính, dễ gần",CHARACTER
+friendly,/ˈfrendli/,adj,thân thiện,CHARACTER
+fussy,/ˈfʌsi/,adj,"cầu kỳ, kiểu cách",CHARACTER
+generous,/ˈdʒenərəs/,adj,"rộng lượng, hào phóng",CHARACTER
+grateful,/ˈɡreɪtfl/,adj,biết ơn,CHARACTER
+honest,/ˈɒnɪst/,adj,"thật thà, lương thiện",CHARACTER
+kind,/kaɪnd/,adj,"tử tế, tốt bụng",CHARACTER
+loyal,/ˈlɔɪəl/,adj,"trung thành, trung nghĩa",CHARACTER
+mature,/məˈtjʊə(r)/,adj,trưởng thành,CHARACTER
+mean,/miːn/,adj,keo kiệt,CHARACTER
+modest,/ˈmɒdɪst/,adj,"khiêm tốn, nhu mì, thùy mị",CHARACTER
+nasty,/ˈnɑːsti/,adj,"bẩn thỉu, thô tục, cáu kỉnh",CHARACTER
+nice,/naɪs/,adj,"xinh đẹp, ngoan, chu đáo",CHARACTER
+patient,/ˈpeɪʃnt/,adj,"kiên nhẫn, bền chí",CHARACTER
+reliable,/rɪˈlaɪəbl/,adj,"chín chắn, đáng tin cậy",CHARACTER
+reserved,/rɪˈzɜːvd/,adj,"kín đáo, dè dặt",CHARACTER
+rude,/ruːd/,adj,"thô lỗ, man rợ, độc ác",CHARACTER
+selfish,/ˈselfɪʃ/,adj,ích kỷ,CHARACTER
+sensible,/ˈsensəbl/,adj,"biết điều, có óc xét đoán",CHARACTER
+spiteful,/ˈspaɪtfl/,adj,"hằn học, đầy thù hận, tỏ ra ác ý",CHARACTER
+stubborn,/ˈstʌbən/,adj,"bướng bỉnh, ngoan cố",CHARACTER
+stupid,/ˈstjuːpɪd/,adj,"ngu ngốc, chậm hiểu",CHARACTER
+tense,/tens/,adj,"căng thẳng, bồn chồn, hồi hộp",CHARACTER
+tired,/ˈtaɪəd/,adj,mệt mỏi,CHARACTER
+tolerant,/ˈtɒlərənt/,adj,khoan dung,CHARACTER
+trust,/trʌst/,noun,"lòng tin, sự tín nhiệm (lưu ý: không phải adj)",CHARACTER
+bigoted,/ˈbɪɡətɪd/,adj,tin mù quáng,CHARACTER
+bitchy,/ˈbɪtʃi/,adj,có ác ý,CHARACTER
+bossy,/ˈbɒsi/,adj,"hống hách, hách dịch",CHARACTER
+careless,/ˈkeələs/,adj,"sơ suất, bất cẩn",CHARACTER
+conceited,/kənˈsiːtɪd/,adj,"tự phụ, tự cao tự đại",CHARACTER
+creative,/kriˈeɪtɪv/,adj,sáng tạo,CHARACTER
+dull,/dʌl/,adj,"chậm hiểu, ngu đần, thẫn thờ",CHARACTER
+garrulous,/ˈɡærələs/,adj,"nói nhiều, ba hoa, lắm mồm",CHARACTER
+gentle,/ˈdʒentl/,adj,"hiền lành, dịu dàng, hòa nhã",CHARACTER
+greedy,/ˈɡriːdi/,adj,tham lam,CHARACTER
+gregarious,/ɡrɪˈɡeəriəs/,adj,"thích đàn đúm, thích giao du",CHARACTER
+heartless,/ˈhɑːtləs/,adj,"vô tâm, nhẫn tâm",CHARACTER
+industrious,/ɪnˈdʌstriəs/,adj,"cần cù, siêng năng, chăm chỉ",CHARACTER
+intelligent,/ɪnˈtelɪdʒənt/,adj,"thông minh, sáng dạ, nhanh trí",CHARACTER
+lazy,/ˈleɪzi/,adj,lười biếng,CHARACTER
+loving,/ˈlʌvɪŋ/,adj,"âu yếm, đằm thắm",CHARACTER
+loyal,/ˈlɔɪəl/,adj,"trung thành, trung nghĩa",CHARACTER
+optimistic,/ˌɒptɪˈmɪstɪk/,adj,lạc quan,CHARACTER
+pessimistic,/ˌpesɪˈmɪstɪk/,adj,bi quan,CHARACTER
+picky,/ˈpɪki/,adj,"cầu kỳ, kiểu cách, kén cá chọn canh",CHARACTER
+punctual,/ˈpʌŋktʃuəl/,adj,đúng giờ,CHARACTER
+reliable,/rɪˈlaɪəbl/,adj,đáng tin cậy,CHARACTER
+self-centred,/ˌselfˈsentəd/,adj,chỉ biết mình,CHARACTER
+sensitive,/ˈsensətɪv/,adj,"nhạy cảm, có sự cảm thông",CHARACTER
+sociable,/ˈsəʊʃəbl/,adj,"dễ gần, chan hòa, hòa đồng",CHARACTER
+stingy,/ˈstɪndʒi/,adj,"keo kiệt, bủn xỉn",CHARACTER
+tetchy,/ˈtetʃi/,adj,"hay bực mình, cáu kỉnh, càu nhàu",CHARACTER
+timid,/ˈtɪmɪd/,adj,"rụt rè, nhút nhát, bẽn lẽn, dễ sợ hãi",CHARACTER
+vain,/veɪn/,adj,"kiêu ngạo, tự phụ, tự đắc",CHARACTER
+witty,/ˈwɪti/,adj,"hóm hỉnh, dí dỏm",CHARACTER
+accomplice,/əˈkʌmplɪs/,noun,"kẻ đồng lõa, tòng phạm",WORDS_OF_PEOPLE
+agent,/ˈeɪdʒənt/,noun,"người đại diện, đại lý",WORDS_OF_PEOPLE
+altruist,/ˈæltruɪst/,noun,người giàu lòng vị tha,WORDS_OF_PEOPLE
+amateur,/ˈæmətə(r)/,noun,người chơi nghiệp dư,WORDS_OF_PEOPLE
+ambidexter,/ˌæmbɪˈdekstər/,noun,người thuận cả hai tay,WORDS_OF_PEOPLE
+ancestor,/ˈænsestə(r)/,noun,tổ tiên,WORDS_OF_PEOPLE
+antiquary,/ˈæntɪkwəri/,noun,người sưu tầm đồ cổ,WORDS_OF_PEOPLE
+aristocrat,/ˈærɪstəkræt/,noun,nhà quý tộc,WORDS_OF_PEOPLE
+arsonist,/ˈɑːsənɪst/,noun,kẻ gây hỏa hoạn,WORDS_OF_PEOPLE
+artist,/ˈɑːtɪst/,noun,nghệ sĩ,WORDS_OF_PEOPLE
+artiste,/ˌɑːˈtiːst/,noun,nghệ sĩ chuyên nghiệp,WORDS_OF_PEOPLE
+assassin,/əˈsæsɪn/,noun,"kẻ ám sát, kẻ giết người",WORDS_OF_PEOPLE
+autocrat,/ˈɔːtəkræt/,noun,"kẻ độc tài, người chuyên quyền",WORDS_OF_PEOPLE
+bachelor,/ˈbætʃələ(r)/,noun,người đàn ông độc thân,WORDS_OF_PEOPLE
+barbarian,/bɑːˈbeəriən/,noun,"người hoang dã, man rợ",WORDS_OF_PEOPLE
+benefactor,/ˈbenɪfæktə(r)/,noun,người hảo tâm,WORDS_OF_PEOPLE
+beneficiary,/ˌbenɪˈfɪʃəri/,noun,người được hưởng lợi,WORDS_OF_PEOPLE
+biblioklept,/ˈbɪbliəʊklept/,noun,kẻ trộm sách,WORDS_OF_PEOPLE
+bibliophile,/ˈbɪbliəfaɪl/,noun,người yêu sách và sưu tầm sách,WORDS_OF_PEOPLE
+cannibal,/ˈkænɪbl/,noun,người ăn thịt đồng loại,WORDS_OF_PEOPLE
+castaway,/ˈkɑːstəweɪ/,noun,người sống sót trong vụ đắm tàu,WORDS_OF_PEOPLE
+civilian,/səˈvɪliən/,noun,thường dân,WORDS_OF_PEOPLE
+compere,/ˈkɒmpeə(r)/,noun,người dẫn chương trình,WORDS_OF_PEOPLE
+connoisseur,/ˌkɒnəˈsɜː(r)/,noun,người sành về một thứ gì đó,WORDS_OF_PEOPLE
+conqueror,/ˈkɒŋkərə(r)/,noun,người chinh phục,WORDS_OF_PEOPLE
+contemporary,/kənˈtemprəri/,noun,người đương thời,WORDS_OF_PEOPLE
+culprit,/ˈkʌlprɪt/,noun,"thủ phạm, kẻ phạm tội",WORDS_OF_PEOPLE
+cynic,/ˈsɪnɪk/,noun,người hay hoài nghi,WORDS_OF_PEOPLE
+despot,/ˈdespɒt/,noun,kẻ quân phiệt,WORDS_OF_PEOPLE
+eavesdropper,/ˈiːvzˌdrɒpə(r)/,noun,người nghe trộm,WORDS_OF_PEOPLE
+egoist,/ˈiːɡəʊɪst/,noun,người ích kỷ,WORDS_OF_PEOPLE
+exile,/ˈeksaɪl/,noun,người bị đày,WORDS_OF_PEOPLE
+fanatic,/fəˈnætɪk/,noun,người cuồng tín,WORDS_OF_PEOPLE
+fugitive,/ˈfjuːdʒətɪv/,noun,kẻ trốn chạy luật pháp,WORDS_OF_PEOPLE
+hermit,/ˈhɜːmɪt/,noun,"nhà ẩn dật, ẩn sĩ",WORDS_OF_PEOPLE
+hypocrite,/ˈhɪpəkrɪt/,noun,người đạo đức giả,WORDS_OF_PEOPLE
+immigrant,/ˈɪmɪɡrənt/,noun,người nhập cư,WORDS_OF_PEOPLE
+immortal,/ɪˈmɔːtl/,noun,người bất tử,WORDS_OF_PEOPLE
+layman,/ˈleɪmən/,noun,người không có chuyên môn,WORDS_OF_PEOPLE
+linguist,/ˈlɪŋɡwɪst/,noun,nhà ngôn ngữ học,WORDS_OF_PEOPLE
+martyr,/ˈmɑːtə(r)/,noun,người chết vì nghĩa,WORDS_OF_PEOPLE
+mastermind,/ˈmɑːstəmaɪnd/,noun,kẻ chủ mưu,WORDS_OF_PEOPLE
+misogamist,/mɪˈsɒɡəmɪst/,noun,người ghét kết hôn,WORDS_OF_PEOPLE
+misogynist,/mɪˈsɒdʒɪnɪst/,noun,người đàn ông ghét phụ nữ,WORDS_OF_PEOPLE
+missionary,/ˈmɪʃənri/,noun,nhà truyền giáo,WORDS_OF_PEOPLE
+moderator,/ˈmɒdəreɪtə(r)/,noun,người trung gian,WORDS_OF_PEOPLE
+monogamist,/məˈnɒɡəmɪst/,noun,người chung thủy (với một vợ/chồng),WORDS_OF_PEOPLE
+monotheist,/ˈmɒnəʊθiɪst/,noun,người theo thuyết một thần,WORDS_OF_PEOPLE
+non-smoker,/ˌnɒnˈsməʊkə(r)/,noun,người không hút thuốc lá,WORDS_OF_PEOPLE
+novice,/ˈnɒvɪs/,noun,"người học việc, người mới bắt đầu",WORDS_OF_PEOPLE
+opportunist,/ˌɒpəˈtjuːnɪst/,noun,kẻ cơ hội,WORDS_OF_PEOPLE
+optimist,/ˈɒptɪmɪst/,noun,người lạc quan,WORDS_OF_PEOPLE
+orphan,/ˈɔːfn/,noun,trẻ mồ côi,WORDS_OF_PEOPLE
+patriot,/ˈpeɪtriət/,noun,"người yêu nước, người ái quốc",WORDS_OF_PEOPLE
+pessimist,/ˈpesɪmɪst/,noun,người bi quan,WORDS_OF_PEOPLE
+philanthropist,/fɪˈlænθrəpɪst/,noun,người làm từ thiện,WORDS_OF_PEOPLE
+pilgrim,/ˈpɪlɡrɪm/,noun,người hành hương,WORDS_OF_PEOPLE
+pragmatist,/ˈpræɡmətɪst/,noun,người thực dụng,WORDS_OF_PEOPLE
+predecessor,/ˈpriːdɪsesə(r)/,noun,người tiền nhiệm,WORDS_OF_PEOPLE
+progeny,/ˈprɒdʒəni/,noun,hậu duệ,WORDS_OF_PEOPLE
+proxy,/ˈprɒksi/,noun,người được ủy nhiệm,WORDS_OF_PEOPLE
+radical,/ˈrædɪkl/,noun,người cấp tiến,WORDS_OF_PEOPLE
+recruit,/rɪˈkruːt/,noun,"tân binh, thành viên mới",WORDS_OF_PEOPLE
+refugee,/ˌrefjuˈdʒiː/,noun,người tị nạn,WORDS_OF_PEOPLE
+sage,/seɪdʒ/,noun,"nhà hiền triết, người uyên bác",WORDS_OF_PEOPLE
+smoker,/ˈsməʊkə(r)/,noun,người hút thuốc lá,WORDS_OF_PEOPLE
+somniloquist,/sɒmˈnɪləkwɪst/,noun,người nói mê khi ngủ,WORDS_OF_PEOPLE
+spinster,/ˈspɪnstə(r)/,noun,"phụ nữ độc thân (thường lớn tuổi, mang nghĩa tiêu cực)",WORDS_OF_PEOPLE
+sponsor,/ˈspɒnsə(r)/,noun,người bảo trợ,WORDS_OF_PEOPLE
+stowaway,/ˈstəʊəweɪ/,noun,người đi lậu tàu/máy bay,WORDS_OF_PEOPLE
+successor,/səkˈsesə(r)/,noun,người kế nhiệm,WORDS_OF_PEOPLE
+sycophant,/ˈsɪkəfænt/,noun,"người nịnh hót, xu nịnh",WORDS_OF_PEOPLE
+teetotaler,/ˈtiːˌtəʊtlə(r)/,noun,người không uống rượu,WORDS_OF_PEOPLE
+traitor,/ˈtreɪtə(r)/,noun,kẻ phản bội,WORDS_OF_PEOPLE
+truant,/ˈtruːənt/,noun,học sinh hay trốn học,WORDS_OF_PEOPLE
+usher,/ˈʌʃər/,(n),"người đưa chỗ (trong rạp hát, nhà thờ, đám cưới)",WORDS_OF_PEOPLE
+vagrant,/ˈveɪgrənt/,(n),"kẻ hành khất, người lang thang",WORDS_OF_PEOPLE
+vandal,/ˈvændəl/,(n),kẻ phá hoại có chủ đích,WORDS_OF_PEOPLE
+vegetarian,/ˌvedʒəˈteəriən/,(n),người ăn chay,WORDS_OF_PEOPLE
+veteran,/ˈvetərən/,(n),cựu chiến binh,WORDS_OF_PEOPLE
+volunteer,/ˌvɒlənˈtɪər/,(n),người tình nguyện,WORDS_OF_PEOPLE
+ward,/wɔːd/,(n),người được bảo trợ,WORDS_OF_PEOPLE
+yuppie,/ˈjʌpi/,(n),người trẻ tuổi có tham vọng,WORDS_OF_PEOPLE

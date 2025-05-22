@@ -1,5 +1,6 @@
 package com.cagongu.repeticoach.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -28,6 +29,7 @@ public class Vocabulary {
     private int intervalDays = 0;
     private LocalDate lastReview;
     private LocalDate nextReview;
+    @JsonIgnore
     @ManyToOne
     private Topic topic;
 

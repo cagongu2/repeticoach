@@ -24,8 +24,8 @@ public interface VocabularyRepository extends JpaRepository<Vocabulary, Long> {
     List<Vocabulary> findNewWords(@Param("limit") int limit);
 
     // Lấy từ mới theo chủ đề
-    @Query("SELECT v FROM Vocabulary v WHERE v.repetition = 0 AND v.nextReview IS NULL AND v.topic.name = :topic ORDER BY v.id ASC")
-    List<Vocabulary> findNewWordsByTopic(@Param("topic") String topic);
+    @Query("SELECT v FROM Vocabulary v WHERE v.repetition = 0 AND v.nextReview IS NULL AND v.topic.name = :topic ORDER BY v.id ASC LIMIT :limit")
+    List<Vocabulary> findNewWordsByTopic(@Param("limit") int limit, @Param("topic") String topic);
 
     // Lấy từ đã học trong x ngày vừa qua
     @Query("SELECT v FROM Vocabulary v WHERE v.lastReview IS NOT NULL AND v.lastReview >= :startDate AND v.lastReview <= :endDate")

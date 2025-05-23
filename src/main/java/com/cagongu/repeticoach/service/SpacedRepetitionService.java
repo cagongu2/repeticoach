@@ -34,6 +34,7 @@ public class SpacedRepetitionService {
         vocabulary.setIntervalDays(interval);
         vocabulary.setLastReview(LocalDate.now());
         vocabulary.setNextReview(LocalDate.now().plusDays(interval));
+        vocabulary.setQuality(quality);
         vocabularyRepository.save(vocabulary);
     }
 }

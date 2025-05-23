@@ -29,6 +29,8 @@ public class Vocabulary {
     private int intervalDays = 0;
     private LocalDate lastReview;
     private LocalDate nextReview;
+    @Builder.Default
+    private int quality = 0;
     @JsonIgnore
     @ManyToOne
     private Topic topic;

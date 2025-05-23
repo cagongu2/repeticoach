@@ -20,10 +20,10 @@ public class EnglishLearningService {
     private final VocabularyRepository vocabularyRepository;
     private final SpacedRepetitionService spacedRepetitionService;
 
-    @Value("${learning.new-words-per-day:10}")
+    @Value("${learning.new-words-per-day}")
     private int newWordsPerDay;
 
-    @Value("${learning.total-words-target:20}")
+    @Value("${learning.total-words-target}")
     private int totalWordsTarget;
 
     /**
@@ -42,6 +42,10 @@ public class EnglishLearningService {
             wordsToReview = vocabularyRepository.findByNextReviewLessThanEqual(today);
         }
 
+        if(wordsToReview.isEmpty()){
+            wordsToReview = getLearnedWordsInLastXDays(0, topic);
+        }
+
         // Giới hạn số lượng từ ôn
         if (wordsToReview.size() > totalWordsTarget) {
             wordsToReview = wordsToReview.subList(0, totalWordsTarget);
@@ -54,7 +58,7 @@ public class EnglishLearningService {
         if (remainingSlots > 0) {
             // Lấy từ mới (chưa có lịch ôn)
             if (topic != null) {
-                newWords = vocabularyRepository.findNewWordsByTopic(topic);
+                newWords = vocabularyRepository.findNewWordsByTopic(Math.min(newWordsPerDay, remainingSlots), topic);
             } else {
                 newWords = vocabularyRepository.findNewWords(Math.min(newWordsPerDay, remainingSlots));
             }

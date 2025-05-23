@@ -77,24 +77,6 @@ public class VocabularyService {
         vocabRepo.delete(vocabulary);
     }
 
-    public List<Vocabulary> getReviewWordsToday() {
-        return vocabRepo.findByNextReviewLessThanEqual(LocalDate.now());
-    }
-
-    public List<Vocabulary> getReviewWordsToday(String topic) {
-        return vocabRepo.findByNextReviewLessThanEqual(LocalDate.now())
-                .stream()
-                .filter(vocabulary -> Objects.equals(vocabulary.getTopic().getName(), topic))
-                .toList();
-    }
-
-    public Vocabulary reviewWord(Long id, int quality) {
-        Vocabulary vocab = vocabRepo.findById(id)
-                .orElseThrow(() -> new RuntimeException("Vocabulary not found: " + id));
-        srService.updateReview(vocab, quality);
-        return vocabRepo.save(vocab);
-    }
-
     public void loadCsvData() throws FileNotFoundException {
         File file = ResourceUtils.getFile("classpath:csvdata/vocabularies.csv");
         List<VocabularyRecord> recs = convertCSV(file);

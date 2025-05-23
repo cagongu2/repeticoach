@@ -32,5 +32,4 @@ public class Vocabulary {
     @JsonIgnore
     @ManyToOne
     private Topic topic;
-
 }

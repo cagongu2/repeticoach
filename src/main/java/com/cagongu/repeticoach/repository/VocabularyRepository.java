@@ -12,6 +12,18 @@ import java.util.Optional;
 public interface VocabularyRepository extends JpaRepository<Vocabulary, Long> {
     Optional<Vocabulary> findByWord(String word);
 
+    // Lấy từ cần ôn theo ngày
     List<Vocabulary> findByNextReviewLessThanEqual(LocalDate today);
-    
+
+    // Lấy từ cần ôn theo ngày và chủ đề
+    @Query("SELECT v FROM Vocabulary v WHERE v.nextReview <= :today AND v.topic.name = :topic")
+    List<Vocabulary> findByNextReviewLessThanEqualAndTopic(@Param("today") LocalDate today, @Param("topic") String topic);
+
+    // Lấy từ mới
+    @Query("SELECT v FROM Vocabulary v WHERE v.repetition = 0 AND v.nextReview IS NULL ORDER BY v.id ASC LIMIT :limit")
+    List<Vocabulary> findNewWords(@Param("limit") int limit);
+
+    // Lấy từ mới theo chủ đề
+    @Query("SELECT v FROM Vocabulary v WHERE v.repetition = 0 AND v.nextReview IS NULL AND v.topic.name = :topic ORDER BY v.id ASC")
+    List<Vocabulary> findNewWordsByTopic(@Param("topic") String topic);
 }

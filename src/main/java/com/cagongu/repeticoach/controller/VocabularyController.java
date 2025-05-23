@@ -44,21 +44,6 @@ public class VocabularyController {
         vocabularyService.deleteById(id);
     }
 
-    @GetMapping("/review-today")
-    public List<Vocabulary> getReviewWords() {
-        return vocabularyService.getReviewWordsToday();
-    }
-
-    @GetMapping("/review-today-by-topic")
-    public List<Vocabulary> getReviewWordsByType(String topic) {
-        return vocabularyService.getReviewWordsToday();
-    }
-
-    @PostMapping("/review/{id}")
-    public Vocabulary review(@PathVariable Long id, @RequestParam int quality) {
-        return vocabularyService.reviewWord(id, quality);
-    }
-
     @PostMapping("/import-data")
     public void loadCsvData() throws FileNotFoundException {
         vocabularyService.loadCsvData();

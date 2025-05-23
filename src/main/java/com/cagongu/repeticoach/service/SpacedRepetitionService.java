@@ -1,12 +1,17 @@
 package com.cagongu.repeticoach.service;
 
 import com.cagongu.repeticoach.model.Vocabulary;
+import com.cagongu.repeticoach.repository.VocabularyRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 
 @Service
+@RequiredArgsConstructor
 public class SpacedRepetitionService {
+    private final VocabularyRepository vocabularyRepository;
+
     public void updateReview(Vocabulary vocabulary, int quality){
         float ef = vocabulary.getEf();
         int rep = vocabulary.getRepetition();
@@ -29,5 +34,6 @@ public class SpacedRepetitionService {
         vocabulary.setIntervalDays(interval);
         vocabulary.setLastReview(LocalDate.now());
         vocabulary.setNextReview(LocalDate.now().plusDays(interval));
+        vocabularyRepository.save(vocabulary);
     }
 }

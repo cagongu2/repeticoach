@@ -72,6 +72,30 @@ public class EnglishLearningService {
     }
 
     /**
+     * Lấy danh sách từ vựng đã học trong x ngày vừa qua, có thể lọc theo topic.
+     * @param days Số ngày nhìn lại (x).
+     * @param topic Tên chủ đề (tùy chọn, null nếu không lọc).
+     * @return Danh sách từ vựng đã học.
+     */
+    public List<Vocabulary> getLearnedWordsInLastXDays(int days, String topic) {
+        if (days < 0) {
+            throw new IllegalArgumentException("Days must be non-negative");
+        }
+
+        LocalDate today = LocalDate.now();
+        LocalDate startDate = today.minusDays(days);
+
+        List<Vocabulary> learnedWords;
+        if (topic != null && !topic.isEmpty()) {
+            learnedWords = vocabularyRepository.findByLastReviewBetweenAndTopic(startDate, today, topic);
+        } else {
+            learnedWords = vocabularyRepository.findByLastReviewBetween(startDate, today);
+        }
+
+        return learnedWords;
+    }
+
+    /**
      * Cập nhật trạng thái ôn tập cho một từ vựng
      *
      * @param vocabularyId ID của từ vựng

@@ -39,5 +39,18 @@ public class LearningController {
         );
     }
 
+    /**
+     * Lấy danh sách từ vựng đã học trong x ngày vừa qua, có thể lọc theo chủ đề.
+     * @param days Số ngày nhìn lại (bắt buộc).
+     * @param topic Tên chủ đề (tùy chọn).
+     * @return Danh sách từ vựng đã học.
+     */
+    @GetMapping("/learned-words")
+    public List<Vocabulary> getLearnedWordsInLastXDays(
+            @RequestParam(value = "days") int days,
+            @RequestParam(value = "topic", required = false) String topic) {
+        return learningService.getLearnedWordsInLastXDays(days, topic);
+    }
+
 
 }

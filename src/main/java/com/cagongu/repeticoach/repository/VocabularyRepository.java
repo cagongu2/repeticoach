@@ -26,4 +26,12 @@ public interface VocabularyRepository extends JpaRepository<Vocabulary, Long> {
     // Lấy từ mới theo chủ đề
     @Query("SELECT v FROM Vocabulary v WHERE v.repetition = 0 AND v.nextReview IS NULL AND v.topic.name = :topic ORDER BY v.id ASC")
     List<Vocabulary> findNewWordsByTopic(@Param("topic") String topic);
+
+    // Lấy từ đã học trong x ngày vừa qua
+    @Query("SELECT v FROM Vocabulary v WHERE v.lastReview IS NOT NULL AND v.lastReview >= :startDate AND v.lastReview <= :endDate")
+    List<Vocabulary> findByLastReviewBetween(@Param("startDate") LocalDate startDate, @Param("endDate") LocalDate endDate);
+
+    // Lấy từ đã học trong x ngày vừa qua theo chủ đề
+    @Query("SELECT v FROM Vocabulary v WHERE v.lastReview IS NOT NULL AND v.lastReview >= :startDate AND v.lastReview <= :endDate AND v.topic.name = :topic")
+    List<Vocabulary> findByLastReviewBetweenAndTopic(@Param("startDate") LocalDate startDate, @Param("endDate") LocalDate endDate, @Param("topic") String topic);
 }

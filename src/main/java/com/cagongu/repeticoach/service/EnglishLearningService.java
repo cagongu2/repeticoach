@@ -1,6 +1,6 @@
 package com.cagongu.repeticoach.service;
 
-import com.cagongu.repeticoach.VocabularyMapper;
+import com.cagongu.repeticoach.mapper.VocabularyMapper;
 import com.cagongu.repeticoach.dto.response.VocabularyDTO;
 import com.cagongu.repeticoach.model.Vocabulary;
 import com.cagongu.repeticoach.repository.VocabularyRepository;

@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Setter
@@ -34,4 +36,8 @@ public class Vocabulary {
     @JsonIgnore
     @ManyToOne
     private Topic topic;
+    @JsonIgnore
+    @Builder.Default
+    @OneToMany
+    private Set<Question> questions = new HashSet<>();
 }

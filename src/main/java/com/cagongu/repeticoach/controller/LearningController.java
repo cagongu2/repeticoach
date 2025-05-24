@@ -1,9 +1,12 @@
 package com.cagongu.repeticoach.controller;
 
+import com.cagongu.repeticoach.dto.request.GetDailyQuestionRequest;
 import com.cagongu.repeticoach.dto.request.UpdateReviewWordRequest;
+import com.cagongu.repeticoach.dto.response.QuestionDTO;
 import com.cagongu.repeticoach.dto.response.VocabularyDTO;
 import com.cagongu.repeticoach.model.Vocabulary;
 import com.cagongu.repeticoach.service.EnglishLearningService;
+import com.cagongu.repeticoach.service.QuestionService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,6 +18,7 @@ import java.util.List;
 public class LearningController {
 
     private final EnglishLearningService learningService;
+    private final QuestionService questionService;
 
     /**
      * Lấy danh sách từ vựng cần học/ôn trong ngày
@@ -24,6 +28,16 @@ public class LearningController {
     @GetMapping("/daily-words")
     public List<VocabularyDTO> getDailyWords(@RequestParam(value = "topic", required = false) String topic) {
         return learningService.getDailyWords(topic);
+    }
+
+    /**
+     * Lấy danh sách câu hỏi cần để ôn tập từ vựng trong ngày
+     *
+     * @return Danh sách các câu hỏi
+     */
+    @GetMapping("/daily-questions")
+    public List<QuestionDTO> getDailyQuestions(GetDailyQuestionRequest req) {
+        return questionService.getDailyQuestion(req);
     }
 
     /**

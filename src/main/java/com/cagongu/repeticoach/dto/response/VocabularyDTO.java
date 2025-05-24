@@ -1,8 +1,10 @@
 package com.cagongu.repeticoach.dto.response;
 
+import com.cagongu.repeticoach.model.Question;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 @Setter
 @Getter
@@ -22,4 +24,5 @@ public class VocabularyDTO {
     private LocalDate nextReview;
     private int quality ;
     private String topicName;
+    private Set<Question> questions;
 }

@@ -2,8 +2,9 @@ package com.cagongu.repeticoach.service;
 
 import com.cagongu.repeticoach.dto.request.CreateVocabularyRequest;
 import com.cagongu.repeticoach.dto.request.UpdateVocabularyRequest;
+import com.cagongu.repeticoach.dto.response.VocabularyDTO;
+import com.cagongu.repeticoach.mapper.VocabularyMapper;
 import com.cagongu.repeticoach.model.Topic;
-import com.cagongu.repeticoach.model.TopicRecord;
 import com.cagongu.repeticoach.model.Vocabulary;
 import com.cagongu.repeticoach.model.VocabularyRecord;
 import com.cagongu.repeticoach.repository.VocabularyRepository;
@@ -16,9 +17,7 @@ import org.springframework.util.StringUtils;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.time.LocalDate;
 import java.util.List;
-import java.util.Objects;
 
 @Service
 @RequiredArgsConstructor
@@ -27,17 +26,21 @@ public class VocabularyService {
 
     private final TopicService topicService;
 
-    private final SpacedRepetitionService srService;
+    private final VocabularyMapper vocabularyMapper;
 
     public List<Vocabulary> findAll() {
         return vocabRepo.findAll();
     }
 
-    public Vocabulary findById(Long id) {
+    public VocabularyDTO findById(Long id) {
+        return vocabularyMapper.vocabularyToVocabularyDTO(vocabRepo.findById(id).orElseThrow(() -> new RuntimeException("Vocabulary not found")));
+    }
+
+    public Vocabulary findByIdInternal(Long id) {
         return vocabRepo.findById(id).orElseThrow(() -> new RuntimeException("Vocabulary not found"));
     }
 
-    public Vocabulary save(CreateVocabularyRequest req) {
+    public VocabularyDTO save(CreateVocabularyRequest req) {
         Topic topic = topicService.findById(req.getTopic());
         Vocabulary vocabulary = Vocabulary.builder()
                 .word(req.getWord())
@@ -46,35 +49,43 @@ public class VocabularyService {
                 .pronunciation(req.getPronunciation())
                 .topic(topic)
                 .build();
-        return vocabRepo.save(vocabulary);
+        return vocabularyMapper.vocabularyToVocabularyDTO(vocabRepo.save(vocabulary));
     }
 
-    public Vocabulary update(Long id, UpdateVocabularyRequest req){
+    public VocabularyDTO update(Long id, UpdateVocabularyRequest req) {
         Vocabulary updateWord = vocabRepo.findById(id).orElseThrow(() -> new RuntimeException("Vocabulary not found"));
-        if(StringUtils.hasText(req.getTopic())){
+        if (StringUtils.hasText(req.getTopic())) {
             Topic topic = topicService.findById(req.getTopic());
             updateWord.setTopic(topic);
         }
 
-        if(StringUtils.hasText(req.getWord())){
+        if (StringUtils.hasText(req.getWord())) {
             updateWord.setWord(req.getWord());
         }
-        if(StringUtils.hasText(req.getType())){
+        if (StringUtils.hasText(req.getType())) {
             updateWord.setType(req.getType());
         }
-        if(StringUtils.hasText(req.getPronunciation())){
+        if (StringUtils.hasText(req.getPronunciation())) {
             updateWord.setPronunciation(req.getPronunciation());
         }
-        if(StringUtils.hasText(req.getMeaning())){
+        if (StringUtils.hasText(req.getMeaning())) {
             updateWord.setMeaning(req.getMeaning());
         }
 
-        return vocabRepo.save(updateWord);
+        return vocabularyMapper.vocabularyToVocabularyDTO(vocabRepo.save(updateWord));
     }
 
     public void deleteById(Long id) {
         Vocabulary vocabulary = vocabRepo.findById(id).orElseThrow(() -> new RuntimeException("Vocabulary not found"));
         vocabRepo.delete(vocabulary);
+    }
+
+    public Vocabulary findVocabularyByWordInternal(String word) {
+        return vocabRepo.findByWord(word).orElseThrow(() -> new RuntimeException("Vocabulary not found"));
+    }
+
+    public VocabularyDTO findVocabularyByWord(String word) {
+        return vocabularyMapper.vocabularyToVocabularyDTO(vocabRepo.findByWord(word).orElseThrow(() -> new RuntimeException("Vocabulary not found")));
     }
 
     public void loadCsvData() throws FileNotFoundException {
@@ -83,17 +94,17 @@ public class VocabularyService {
         recs.forEach(vocabularyRecord -> {
             Topic topic = topicService.findById(vocabularyRecord.getTopic());
             vocabRepo.save(Vocabulary.builder()
-                            .word(vocabularyRecord.getWord())
-                            .pronunciation(vocabularyRecord.getPronunciation())
-                            .type(vocabularyRecord.getType())
-                            .meaning(vocabularyRecord.getMeaning())
-                            .topic(topic)
+                    .word(vocabularyRecord.getWord())
+                    .pronunciation(vocabularyRecord.getPronunciation())
+                    .type(vocabularyRecord.getType())
+                    .meaning(vocabularyRecord.getMeaning())
+                    .topic(topic)
                     .build());
         });
     }
 
-    public List<VocabularyRecord> convertCSV(File file){
-        try{
+    public List<VocabularyRecord> convertCSV(File file) {
+        try {
             return new CsvToBeanBuilder<VocabularyRecord>(new FileReader(file))
                     .withType(VocabularyRecord.class)
                     .build().parse();

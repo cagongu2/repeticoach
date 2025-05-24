@@ -2,6 +2,7 @@ package com.cagongu.repeticoach.controller;
 
 import com.cagongu.repeticoach.dto.request.CreateVocabularyRequest;
 import com.cagongu.repeticoach.dto.request.UpdateVocabularyRequest;
+import com.cagongu.repeticoach.dto.response.VocabularyDTO;
 import com.cagongu.repeticoach.model.Vocabulary;
 import com.cagongu.repeticoach.service.SpacedRepetitionService;
 import com.cagongu.repeticoach.service.VocabularyService;
@@ -16,7 +17,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class VocabularyController {
     private final VocabularyService vocabularyService;
-    private final SpacedRepetitionService spacedRepetitionService;
 
     @GetMapping()
     public List<Vocabulary> getAllVocabularies() {
@@ -24,17 +24,17 @@ public class VocabularyController {
     }
 
     @GetMapping("/{id}")
-    public Vocabulary getVocabularyById(@PathVariable Long id) {
+    public VocabularyDTO getVocabularyById(@PathVariable Long id) {
         return vocabularyService.findById(id);
     }
 
     @PostMapping()
-    public Vocabulary createVocabulary(@RequestBody CreateVocabularyRequest vocabulary) {
+    public VocabularyDTO createVocabulary(@RequestBody CreateVocabularyRequest vocabulary) {
         return vocabularyService.save(vocabulary);
     }
 
     @PutMapping("/{id}")
-    public Vocabulary updateVocabulary(@PathVariable Long id, @RequestBody UpdateVocabularyRequest vocabulary) {
+    public VocabularyDTO updateVocabulary(@PathVariable Long id, @RequestBody UpdateVocabularyRequest vocabulary) {
 
         return vocabularyService.update(id, vocabulary);
     }

@@ -1,4 +1,4 @@
-package com.cagongu.repeticoach;
+package com.cagongu.repeticoach.mapper;
 
 import com.cagongu.repeticoach.dto.response.VocabularyDTO;
 import com.cagongu.repeticoach.model.Vocabulary;

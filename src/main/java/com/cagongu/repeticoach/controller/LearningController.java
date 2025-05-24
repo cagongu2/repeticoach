@@ -1,6 +1,7 @@
 package com.cagongu.repeticoach.controller;
 
 import com.cagongu.repeticoach.dto.request.UpdateReviewWordRequest;
+import com.cagongu.repeticoach.dto.response.VocabularyDTO;
 import com.cagongu.repeticoach.model.Vocabulary;
 import com.cagongu.repeticoach.service.EnglishLearningService;
 import lombok.RequiredArgsConstructor;
@@ -21,7 +22,7 @@ public class LearningController {
      * @return Danh sách từ vựng đã được sắp xếp
      */
     @GetMapping("/daily-words")
-    public List<Vocabulary> getDailyWords(@RequestParam(value = "topic", required = false) String topic) {
+    public List<VocabularyDTO> getDailyWords(@RequestParam(value = "topic", required = false) String topic) {
         return learningService.getDailyWords(topic);
     }
 
@@ -46,7 +47,7 @@ public class LearningController {
      * @return Danh sách từ vựng đã học.
      */
     @GetMapping("/learned-words")
-    public List<Vocabulary> getLearnedWordsInLastXDays(
+    public List<VocabularyDTO> getLearnedWordsInLastXDays(
             @RequestParam(value = "days") int days,
             @RequestParam(value = "topic", required = false) String topic) {
         return learningService.getLearnedWordsInLastXDays(days, topic);

@@ -1,5 +1,7 @@
 package com.cagongu.repeticoach.service;
 
+import com.cagongu.repeticoach.VocabularyMapper;
+import com.cagongu.repeticoach.dto.response.VocabularyDTO;
 import com.cagongu.repeticoach.model.Vocabulary;
 import com.cagongu.repeticoach.repository.VocabularyRepository;
 import jakarta.transaction.Transactional;
@@ -16,7 +18,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @Transactional
 public class EnglishLearningService {
-
+    private final VocabularyMapper vocabularyMapper;
     private final VocabularyRepository vocabularyRepository;
     private final SpacedRepetitionService spacedRepetitionService;
 
@@ -31,15 +33,15 @@ public class EnglishLearningService {
      *
      * @return Danh sách từ vựng đã được sắp xếp xen kẽ
      */
-    public List<Vocabulary> getDailyWords(String topic) {
+    public List<VocabularyDTO> getDailyWords(String topic) {
         LocalDate today = LocalDate.now();
 
         // Lấy từ cần ôn (đã học trước đó)
-        List<Vocabulary> wordsToReview;
+        List<VocabularyDTO> wordsToReview;
         if (topic != null && !topic.isEmpty()) {
-            wordsToReview = vocabularyRepository.findByNextReviewLessThanEqualAndTopic(today, topic);
+            wordsToReview = vocabularyRepository.findByNextReviewLessThanEqualAndTopic(today, topic).stream().map(vocabularyMapper::vocabularyToVocabularyDTO).toList();
         } else {
-            wordsToReview = vocabularyRepository.findByNextReviewLessThanEqual(today);
+            wordsToReview = vocabularyRepository.findByNextReviewLessThanEqual(today).stream().map(vocabularyMapper::vocabularyToVocabularyDTO).toList();
         }
 
         if(wordsToReview.isEmpty()){
@@ -72,7 +74,7 @@ public class EnglishLearningService {
         }
 
         // Trộn xen kẽ từ ôn và từ mới
-        return interleaveLists(wordsToReview, newWords);
+        return interleaveLists(wordsToReview, newWords.stream().map(vocabularyMapper::vocabularyToVocabularyDTO).toList());
     }
 
     /**
@@ -81,7 +83,7 @@ public class EnglishLearningService {
      * @param topic Tên chủ đề (tùy chọn, null nếu không lọc).
      * @return Danh sách từ vựng đã học.
      */
-    public List<Vocabulary> getLearnedWordsInLastXDays(int days, String topic) {
+    public List<VocabularyDTO> getLearnedWordsInLastXDays(int days, String topic) {
         if (days < 0) {
             throw new IllegalArgumentException("Days must be non-negative");
         }
@@ -89,11 +91,11 @@ public class EnglishLearningService {
         LocalDate today = LocalDate.now();
         LocalDate startDate = today.minusDays(days);
 
-        List<Vocabulary> learnedWords;
+        List<VocabularyDTO> learnedWords;
         if (topic != null && !topic.isEmpty()) {
-            learnedWords = vocabularyRepository.findByLastReviewBetweenAndTopic(startDate, today, topic);
+            learnedWords = vocabularyRepository.findByLastReviewBetweenAndTopic(startDate, today, topic).stream().map(vocabularyMapper::vocabularyToVocabularyDTO).toList();;
         } else {
-            learnedWords = vocabularyRepository.findByLastReviewBetween(startDate, today);
+            learnedWords = vocabularyRepository.findByLastReviewBetween(startDate, today).stream().map(vocabularyMapper::vocabularyToVocabularyDTO).toList();;
         }
 
         return learnedWords;

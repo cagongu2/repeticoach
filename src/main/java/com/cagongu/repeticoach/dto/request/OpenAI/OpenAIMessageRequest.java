@@ -1,4 +1,4 @@
-package com.cagongu.repeticoach.dto.request;
+package com.cagongu.repeticoach.dto.request.OpenAI;
 
 import lombok.*;
 

@@ -17,7 +17,14 @@ public class Option {
     private Long id;
     private String label;
     private String content;
+
     @JsonIgnore
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne()
+    @JoinColumn(name = "question_id")
     private Question question;
+
+    public void setQuestion(Question question){
+        this.question = question;
+        question.getOptions().add(this);
+    }
 }

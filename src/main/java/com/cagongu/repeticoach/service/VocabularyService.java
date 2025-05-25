@@ -8,6 +8,7 @@ import com.cagongu.repeticoach.model.Topic;
 import com.cagongu.repeticoach.model.Vocabulary;
 import com.cagongu.repeticoach.model.VocabularyRecord;
 import com.cagongu.repeticoach.repository.VocabularyRepository;
+import com.cagongu.repeticoach.utils.ConvertCSV;
 import com.opencsv.bean.CsvToBeanBuilder;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -90,7 +91,9 @@ public class VocabularyService {
 
     public void loadCsvData() throws FileNotFoundException {
         File file = ResourceUtils.getFile("classpath:csvdata/vocabularies.csv");
-        List<VocabularyRecord> recs = convertCSV(file);
+        ConvertCSV cvt = new ConvertCSV();
+        List<VocabularyRecord> recs = cvt.convertCSV(file, VocabularyRecord.class);
+
         recs.forEach(vocabularyRecord -> {
             Topic topic = topicService.findById(vocabularyRecord.getTopic());
             vocabRepo.save(Vocabulary.builder()
@@ -101,15 +104,5 @@ public class VocabularyService {
                     .topic(topic)
                     .build());
         });
-    }
-
-    public List<VocabularyRecord> convertCSV(File file) {
-        try {
-            return new CsvToBeanBuilder<VocabularyRecord>(new FileReader(file))
-                    .withType(VocabularyRecord.class)
-                    .build().parse();
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        }
     }
 }

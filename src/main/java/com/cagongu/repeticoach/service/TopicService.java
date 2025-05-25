@@ -5,6 +5,7 @@ import com.cagongu.repeticoach.dto.request.UpdateTopicRequest;
 import com.cagongu.repeticoach.model.Topic;
 import com.cagongu.repeticoach.model.TopicRecord;
 import com.cagongu.repeticoach.repository.TopicRepository;
+import com.cagongu.repeticoach.utils.ConvertCSV;
 import com.opencsv.bean.CsvToBeanBuilder;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -20,16 +21,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class TopicService {
     private final TopicRepository topicRepo;
-
-    public List<TopicRecord> convertCSV(File file){
-        try{
-            return new CsvToBeanBuilder<TopicRecord>(new FileReader(file))
-                    .withType(TopicRecord.class)
-                    .build().parse();
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-    }
 
     public List<Topic> findAll() {
         return topicRepo.findAll();
@@ -60,7 +51,8 @@ public class TopicService {
 
     public void loadCsvData() throws FileNotFoundException {
         File file = ResourceUtils.getFile("classpath:csvdata/topics.csv");
-        List<TopicRecord> recs = convertCSV(file);
+        ConvertCSV cvts = new ConvertCSV();
+        List<TopicRecord> recs = cvts.convertCSV(file, TopicRecord.class);
         recs.forEach(topicRecord -> {
             topicRepo.save(Topic.builder().name(topicRecord.getName()).build());
         });

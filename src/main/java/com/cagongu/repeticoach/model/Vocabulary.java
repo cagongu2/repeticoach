@@ -36,8 +36,14 @@ public class Vocabulary {
     @JsonIgnore
     @ManyToOne
     private Topic topic;
+
+    public void setTopic(Topic topic) {
+        this.topic = topic;
+        topic.getVocabularyList().add(this);
+    }
+
     @JsonIgnore
     @Builder.Default
-    @OneToMany
+    @OneToMany(mappedBy = "vocabulary", cascade =  CascadeType.ALL, orphanRemoval = true)
     private Set<Question> questions = new HashSet<>();
 }

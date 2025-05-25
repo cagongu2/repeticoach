@@ -36,7 +36,7 @@ public class LearningController {
      * @return Danh sách các câu hỏi
      */
     @GetMapping("/daily-questions")
-    public List<QuestionDTO> getDailyQuestions(GetDailyQuestionRequest req) {
+    public List<QuestionDTO> getDailyQuestions(@RequestBody GetDailyQuestionRequest req) {
         return questionService.getDailyQuestion(req);
     }
 
